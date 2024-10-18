@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "dev": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "tauri": "tauri"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.6.0",
+    "prettier-plugin-tailwindcss": "^0.6.6"
+  }
+}
