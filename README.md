@@ -1,5 +1,9 @@
 # 2TAT - Technical Task Assistance Tool
 
+<p align="center">
+  <img src="./client/public/images/2TAT-1.png" alt="2TAT Banner" width="600">
+</p>
+
 ## 📖 About
 
 This application is designed to facilitate and secure financial management in the context of market operations. Initially, our starting point was a simple Excel spreadsheet used to manage and distribute budgets. However, significant areas for improvement were identified: the precision of calculations and financial distribution, as well as optimized ergonomics for a more user-friendly, simple, and intuitive experience.
@@ -10,7 +14,7 @@ This application is designed to facilitate and secure financial management in th
 
 - Cross-platform desktop application using Tauri (Windows, macOS, Linux)
 - Tauri's lightweight and secure native runtime
-- Modern web interface built with React
+- Modern web interface built with React (minimalistic and intuitive at this stage)
 - Fast development with Vite and Hot Module Replacement (HMR)
 - Precise decimal arithmetic with Decimal.js
 - Optimized financial calculations and distribution ("penny pinching" algorithm)
@@ -29,13 +33,13 @@ Before you begin, ensure you have met the following requirements:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/Frederic-K/Technical-Task-Assistance-Tool.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd your-repo-name
+   cd Technical-Task-Assistance-Tool
    ```
 
 3. Install dependencies:
@@ -101,6 +105,7 @@ yarn lint
 - `src-tauri/`: Contains the Tauri application files
   - `src/`: Main source code for the Tauri application
   - `icons/`: Icons for the Tauri application
+  - `target/`: Build output for the Tauri application
 
 ## 🛠️ Built With
 
