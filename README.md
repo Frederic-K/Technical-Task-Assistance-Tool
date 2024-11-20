@@ -6,7 +6,7 @@
 
 ## 📖 About
 
-This application is designed to facilitate and secure financial management in the context of market operations. Initially, our starting point was a simple Excel spreadsheet used to manage and distribute budgets. However, significant areas for improvement were identified: the precision of calculations and financial distribution, as well as optimized ergonomics for a more user-friendly, simple, and intuitive experience.
+This application is designed to facilitate and secure financial management in the context of market operations. Initially, our starting point was a basic Excel spreadsheet used to manage and distribute budgets. However, significant areas for improvement were identified: the precision of calculations and financial distribution, as well as optimized ergonomics for a more user-friendly, simple, and intuitive experience.
 
 2TAT is a specialized and specific business application; it is a tool for the purchasing department, seeking to optimize its financial distribution with precision and efficiency. But it is also, and most importantly, the starting point for a reflection on tools that can be developed and progressively integrated to secure and facilitate routine and technical activities.
 
