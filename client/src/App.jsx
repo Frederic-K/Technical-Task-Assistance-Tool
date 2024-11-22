@@ -3,14 +3,20 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import RootLayout from "./components/RootLayout/RootLayout"
 
 import Home from "./pages/Home"
-import TextFormatter from "./pages/TextFormatter"
+import DataFormatter from "./pages/DataFormatter"
 import MarketCalculator from "./pages/MarketCalculator"
 import NotFound from "./pages/NotFound"
 
 const publicRoutes = [
   { index: true, element: <Home /> },
   { path: "marketcalculator", element: <MarketCalculator /> },
-  { path: "textformatter", element: <TextFormatter /> },
+  {
+    path: "dataformatter",
+    element: <DataFormatter />,
+    // children: [
+    //   { path: "subroute", element: <SubComponent /> }, // Add your sub-route here
+    // ],
+  },
 ]
 
 function App() {

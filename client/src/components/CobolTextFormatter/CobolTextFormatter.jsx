@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react"
-import { LuListRestart } from "react-icons/lu"
-import { ToggleSwitch } from "flowbite-react"
 import { Toaster } from "react-hot-toast"
-import toast from "react-hot-toast"
+import { ToggleSwitch } from "flowbite-react"
 import { motion } from "framer-motion"
+import toast from "react-hot-toast"
+import { LuListRestart } from "react-icons/lu"
 
-import Title from "../components/PageTitle/PageTtile"
-
-const TextFormatter = () => {
+const CobolTextFormatter = () => {
   const [inputText, setInputText] = useState("")
   const [formattedText, setFormattedText] = useState("")
   const [autoFormat, setAutoFormat] = useState(true)
@@ -100,12 +98,9 @@ const TextFormatter = () => {
     >
       <Toaster position="bottom-left" reverseOrder={false} />
       <motion.div variants={itemVariants}>
-        <Title content="Text Formatter" />
-      </motion.div>
-      <motion.div variants={itemVariants}>
         <div className="mb-1 mt-4">
           <label className="mb-2 block text-xl font-semibold text-orange-700">
-            Paste your text here:
+            Paste your COBOL text here:
           </label>
           <textarea
             className="h-40 w-full rounded border-2 border-zinc-300 p-2 font-mono dark:bg-zinc-300 dark:text-zinc-700"
@@ -133,7 +128,7 @@ const TextFormatter = () => {
       <motion.div variants={itemVariants}>
         <div className="mb-1 mt-4">
           <label className="mb-2 block text-xl font-semibold text-orange-700">
-            Formatted text:
+            Formatted COBOL text:
           </label>
           <textarea
             className="h-40 w-full rounded border-2 border-zinc-300 p-2 font-mono dark:bg-zinc-300 dark:text-zinc-700"
@@ -169,4 +164,4 @@ const TextFormatter = () => {
   )
 }
 
-export default TextFormatter
+export default CobolTextFormatter
