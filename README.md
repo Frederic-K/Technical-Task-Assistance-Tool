@@ -18,6 +18,7 @@ This application is designed to facilitate and secure financial management in th
 - Fast development with Vite and Hot Module Replacement (HMR)
 - Precise decimal arithmetic with Decimal.js
 - Optimized financial calculations and distribution ("penny pinching" algorithm)
+- Text formatting (I.e. from plain text to rich text, for better readability)
 - User-friendly and intuitive interface
 
 ## 🛠️ Prerequisites
