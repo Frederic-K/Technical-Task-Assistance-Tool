@@ -21,16 +21,16 @@ const DataFormatter = () => {
       label: "Excel Data Formatter",
       description: "Excel to BO prompt",
     },
-    {
-      value: "anotherFormatType",
-      label: "Another Format Type",
-      description: "Description for another format type",
-    },
-    {
-      value: "elseFormatType",
-      label: "Else Format Type",
-      description: "Description for else format type",
-    },
+    // {
+    //   value: "anotherFormatType",
+    //   label: "Another Format Type",
+    //   description: "Description for another format type",
+    // },
+    // {
+    //   value: "elseFormatType",
+    //   label: "Else Format Type",
+    //   description: "Description for else format type",
+    // },
   ]
 
   const handleFormatChange = (value) => {

@@ -92,7 +92,7 @@ const ExcelDataFormatter = () => {
             className="h-40 w-full rounded border-2 border-zinc-300 p-2 font-mono dark:bg-zinc-300 dark:text-zinc-700"
             value={inputText}
             onChange={handleInputChange}
-            placeholder="Paste your Excel data here. Each cell should be on a new line or separated by tabs."
+            // placeholder="Paste your Excel data here. Each cell should be on a new line or separated by tabs."
           />
         </div>
         <div className="flex h-11 items-center justify-end">

@@ -36,7 +36,10 @@ const CobolTextFormatter = () => {
   }
 
   const formatText = (text) => {
+    // Split the input by newlines
     const lines = text.split("\n")
+    // Replace consecutive spaces with non-breaking spaces
+    // This preserves the original spacing when rendered as HTML
     const formattedLines = lines.map((line) => {
       return line.replace(/ {2,}/g, (match) => "&nbsp;".repeat(match.length))
     })
@@ -106,7 +109,7 @@ const CobolTextFormatter = () => {
             className="h-40 w-full rounded border-2 border-zinc-300 p-2 font-mono dark:bg-zinc-300 dark:text-zinc-700"
             value={inputText}
             onChange={handleInputChange}
-            placeholder="Paste your raw text here."
+            // placeholder="Paste your raw text here."
           />
         </div>
         <div className="flex h-11 items-center justify-end">
