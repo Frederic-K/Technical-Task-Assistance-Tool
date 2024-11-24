@@ -1,14 +1,16 @@
 import { useState } from "react"
 import { MdKeyboardArrowDown } from "react-icons/md"
+import { motion } from "framer-motion" // Import motion from framer-motion
 import Title from "../components/PageTitle/PageTtile"
 import CobolTextFormatter from "../components/CobolTextFormatter/CobolTextFormatter"
+import ExcelDataFormatter from "../components/ExcelDataFormatter/ExcelDataFormatter"
 
 const DataFormatter = () => {
   const [formatType, setFormatType] = useState("cobolText")
   const [isOpen, setIsOpen] = useState(false)
 
   const formatOptions = [
-    { value: "cobolText", label: "Cobol Text Formatter" },
+    { value: "cobolText", label: "Raw Text Formatter" },
     { value: "excelData", label: "Excel Data Formatter" },
     { value: "anotherFormatType", label: "Another Format Type" },
     { value: "elseFormatType", label: "Else Format Type" },
@@ -23,19 +25,50 @@ const DataFormatter = () => {
     switch (formatType) {
       case "cobolText":
         return <CobolTextFormatter />
+      case "excelData":
+        return <ExcelDataFormatter />
       // Add more cases here for each new formatting type
       default:
         return <CobolTextFormatter />
     }
   }
 
-  return (
-    <div>
-      <div>
-        <Title content="Data Formatter" />
-      </div>
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+      },
+    },
+  }
 
-      <div className="mx-auto mt-8 max-w-lg rounded-md border border-zinc-400 bg-zinc-400/20">
+  return (
+    <motion.div
+      className="min-h-screen"
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.3,
+          },
+        },
+      }}
+    >
+      <motion.div variants={itemVariants}>
+        <Title content="Data Formatter" />
+      </motion.div>
+
+      <motion.div
+        className="mx-auto mt-8 max-w-lg rounded-md border border-zinc-400 bg-zinc-400/20"
+        variants={itemVariants}
+      >
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
@@ -53,14 +86,19 @@ const DataFormatter = () => {
             }`}
           />
         </button>
-        <div
+        <motion.div
           className={`overflow-hidden transition-all duration-300 ${
             isOpen ? "max-h-60" : "max-h-0"
           }`}
+          variants={itemVariants}
         >
           <div className="grid grid-cols-1 gap-3 p-4">
             {formatOptions.map((option) => (
-              <div key={option.value} className="flex items-center">
+              <motion.div
+                key={option.value}
+                className="flex items-center"
+                variants={itemVariants}
+              >
                 <input
                   type="radio"
                   id={option.value}
@@ -76,14 +114,14 @@ const DataFormatter = () => {
                 >
                   {option.label}
                 </label>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      {renderFormatter()}
-    </div>
+      <motion.div variants={itemVariants}>{renderFormatter()}</motion.div>
+    </motion.div>
   )
 }
 

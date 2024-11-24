@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import toast from "react-hot-toast"
 import { LuListRestart } from "react-icons/lu"
 
-const CobolTextFormatter = () => {
+const ExcelDataFormatter = () => {
   const [inputText, setInputText] = useState("")
   const [formattedText, setFormattedText] = useState("")
   const [autoFormat, setAutoFormat] = useState(true)
@@ -36,34 +36,20 @@ const CobolTextFormatter = () => {
   }
 
   const formatText = (text) => {
-    const lines = text.split("\n")
-    const formattedLines = lines.map((line) => {
-      return line.replace(/ {2,}/g, (match) => "&nbsp;".repeat(match.length))
-    })
-
-    const formattedHtml = `
-      <div style="font-family: 'Courier New', Courier, monospace; font-size: 9pt;">
-        ${formattedLines
-          .map(
-            (line) => `
-          <div style="display: flex; margin: 0; padding: 0; line-height: 1.0;">
-            <div style="white-space: pre; margin: 0; padding: 0;">${line}</div>
-            <div style="margin-left: 20px; width: 200px;"></div>
-          </div>
-        `,
-          )
-          .join("")}
-      </div>
-    `
-
-    setFormattedText(formattedHtml)
+    // Split the input by newlines and/or tabs
+    const cells = text.split(/[\n\t]+/)
+    // Remove any empty cells and trim whitespace
+    const cleanedCells = cells
+      .map((cell) => cell.trim())
+      .filter((cell) => cell !== "")
+    // Join the cells with semicolons
+    const formatted = cleanedCells.join(";")
+    setFormattedText(formatted)
   }
 
   const copyToClipboard = () => {
-    const blob = new Blob([formattedText], { type: "text/html" })
-    const data = [new ClipboardItem({ "text/html": blob })]
     navigator.clipboard
-      .write(data)
+      .writeText(formattedText)
       .then(() => toast.success("Formatted text copied to clipboard!"))
       .catch((err) => console.error("Failed to copy text: ", err))
   }
@@ -100,20 +86,20 @@ const CobolTextFormatter = () => {
       <motion.div variants={itemVariants}>
         <div className="mb-1 mt-4">
           <label className="mb-2 block text-xl font-semibold text-orange-700">
-            Paste your raw text here:
+            Paste your Excel data here (single line or column):
           </label>
           <textarea
             className="h-40 w-full rounded border-2 border-zinc-300 p-2 font-mono dark:bg-zinc-300 dark:text-zinc-700"
             value={inputText}
             onChange={handleInputChange}
-            placeholder="Paste your raw text here."
+            placeholder="Paste your Excel data here. Each cell should be on a new line or separated by tabs."
           />
         </div>
         <div className="flex h-11 items-center justify-end">
           {!autoFormat && (
             <button
               className="mr-auto flex h-11 items-center justify-center rounded-md border border-orange-900 bg-gradient-to-r from-orange-700 via-orange-500 to-orange-700 px-4 py-2 text-lg font-semibold text-zinc-100 hover:from-orange-400 hover:via-orange-700 hover:to-orange-400"
-              onClick={formatText}
+              onClick={() => formatText(inputText)}
             >
               Format Text
             </button>
@@ -132,7 +118,7 @@ const CobolTextFormatter = () => {
             Formatted text:
           </label>
           <textarea
-            className="h-40 w-full rounded border-2 border-zinc-300 p-2 font-mono dark:bg-zinc-300 dark:text-zinc-700"
+            className="h-20 w-full rounded border-2 border-zinc-300 p-2 font-mono dark:bg-zinc-300 dark:text-zinc-700"
             value={formattedText}
             readOnly
           />
@@ -165,4 +151,4 @@ const CobolTextFormatter = () => {
   )
 }
 
-export default CobolTextFormatter
+export default ExcelDataFormatter
