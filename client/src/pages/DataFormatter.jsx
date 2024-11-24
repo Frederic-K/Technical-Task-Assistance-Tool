@@ -2,6 +2,7 @@ import { useState } from "react"
 import { MdKeyboardArrowDown } from "react-icons/md"
 import { motion } from "framer-motion" // Import motion from framer-motion
 import Title from "../components/PageTitle/PageTtile"
+import Tooltip from "../components/Tooltip/Tooltip"
 import CobolTextFormatter from "../components/CobolTextFormatter/CobolTextFormatter"
 import ExcelDataFormatter from "../components/ExcelDataFormatter/ExcelDataFormatter"
 
@@ -10,10 +11,26 @@ const DataFormatter = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   const formatOptions = [
-    { value: "cobolText", label: "Raw Text Formatter" },
-    { value: "excelData", label: "Excel Data Formatter" },
-    { value: "anotherFormatType", label: "Another Format Type" },
-    { value: "elseFormatType", label: "Else Format Type" },
+    {
+      value: "cobolText",
+      label: "Raw Text Formatter",
+      description: "SAGAH to mail",
+    },
+    {
+      value: "excelData",
+      label: "Excel Data Formatter",
+      description: "Excel to BO prompt",
+    },
+    {
+      value: "anotherFormatType",
+      label: "Another Format Type",
+      description: "Description for another format type",
+    },
+    {
+      value: "elseFormatType",
+      label: "Else Format Type",
+      description: "Description for else format type",
+    },
   ]
 
   const handleFormatChange = (value) => {
@@ -108,12 +125,18 @@ const DataFormatter = () => {
                   onChange={() => handleFormatChange(option.value)}
                   className="mr-2 h-4 w-4 text-orange-600 focus:ring-orange-500"
                 />
-                <label
-                  htmlFor={option.value}
-                  className="flex-grow font-medium text-zinc-700 dark:text-zinc-300"
+                <Tooltip
+                  content={option.description}
+                  width="w-44"
+                  position="right"
                 >
-                  {option.label}
-                </label>
+                  <label
+                    htmlFor={option.value}
+                    className="flex-grow cursor-help font-medium text-zinc-700 dark:text-zinc-300"
+                  >
+                    {option.label}
+                  </label>
+                </Tooltip>
               </motion.div>
             ))}
           </div>

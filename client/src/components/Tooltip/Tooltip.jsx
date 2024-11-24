@@ -19,7 +19,7 @@ const Tooltip = ({ children, content, width = "w-36", position = "top" }) => {
         {children}
       </div>
       <div
-        className={`absolute z-10 rounded-md border border-zinc-700 bg-zinc-200 px-3 py-2 text-sm shadow-lg transition-opacity duration-300 ease-in-out dark:bg-zinc-700 dark:text-zinc-200 ${
+        className={`absolute z-50 rounded-md border border-zinc-700 bg-zinc-200 px-3 py-2 text-sm shadow-lg transition-opacity duration-300 ease-in-out dark:bg-zinc-700 dark:text-zinc-200 ${
           isVisible ? "opacity-100" : "pointer-events-none opacity-0"
         } ${width} ${positionClasses[position]}`}
       >
